@@ -15,3 +15,7 @@
 //10- O jogador vence ao dorrotar todos os 9 adversários do torneio
 
 /*---------------------------------------------------------------------------------------------------------------------*/
+
+function consoleHello() {
+    console.log('Hello')
+}

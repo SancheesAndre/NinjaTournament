@@ -1,12 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ninja Tournament</title>
+    <link rel="stylesheet" href="styles/style.css">
 </head>
+
 <body>
-    
+    <div class="background">
+        <div class="container">
+            <div class="enemyBox">
+                <div class="enemyInfo">
+                    <img src="/charactersMedia/greenTeam/GreenNinja/Faceset.png" alt="enemy avatar">
+                    <h1>Enemy Name</h1>
+                    <h2>STR</h2>
+                    <h2>DEF</h2>
+                </div>
+            </div>
+            <div class="enemyAnimation">
+
+            </div>
+            <div class="playerBox">
+                <div class="playerInfo">
+                    <img src="/charactersMedia/Player/DarkNinja/Faceset.png">
+                    <h1>Player Name</h1>
+                </div>
+            </div>
+            <div class="playerAnimation">
+                
+            </div>
+            <div class="playerSkills">
+                <button class="skills" onclick="consoleHello()">Flame<br>Shuriken</button>
+                <button class="skills">Leaf<br>Shuriken</button>
+                <button class="skills">Rock<br>Shuriken</button>
+            </div>
+        </div>
+    </div>
+    <script src="/scripts/index.js"></script>
+    <script src="/scripts/game.js"></script>
 </body>
+
 </html>
