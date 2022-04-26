@@ -35,7 +35,9 @@ Your app must:
 # Ninja Tournament
 Um jogo retro de luta, feito usando JavaScript, manipulação do DOM, HTML5 e CSS3
 
-## Requerimentos tecnicos
+---
+
+## Requerimentos técnicos
 
 * Renderize o jogo no navegador.
 * Tenha uma lógica para ganhar e/ou perder e mostre feedback ao jogador em ambos os casos.
@@ -46,17 +48,19 @@ Um jogo retro de luta, feito usando JavaScript, manipulação do DOM, HTML5 e CS
 * Seja hospedado online usando o GitHub Pages para que qualquer pessoa possa jogar.
 * Mantenha os princípios do KISS (Keep It Simple Stupid) e DRY (Don't Repeat Yourself).
 
-## Regras do joho
+---
+
+## Regras do jogo
 
 * 1  - Criar um jogo singleplayer RPG em que o jogador passe de fase ao matar um unimigo;
 * 2  - A cada dois inimigos comuns, um boss é gerado;
-* 3  - O jogador e o adversario possuem VIDA | FORÇA | DEFESA; 
+* 3  - O jogador e o adversário possuem VIDA | FORÇA | DEFESA; 
 * 4  - A vida do JOGADOR é restaurada no inicio de cada combate;
-* 5  - Criar um menu inicial com os botoes Jogar e Uma pequena introduçao do jogo "Combata os adversários no torneio e torne-se o campeao!"| Creditos; 
+* 5  - Criar um menu inicial com os botões JOGAR, uma pequena introduçao do jogo e os CREDITOS; 
 * 6  - O HUD do jogo mostrará as iformaçoes do INIMIGO e do JOGADOR (IMAGEM, ANIMAÇÃO, NOME, VIDA, FORÇA e DEFESA);
 * 7  - O jogador ataca primeiro e depois se defende do inimigo;
 * 8  - Se a vida do jogador chegar a 0 o jogo reinicia;
-* 9  - Se a vida do adversário chegar a 0 um novo inimigo aparece e o Jogador ganha ponto adicionais de atributo aleatóriamente;
+* 9  - Se a vida do adversário chegar a 0 um novo inimigo aparece e o Jogador ganha ponto adicionais de atributo aleatoriamente;
 * 10 - O jogador vence ao dorrotar todos os 9 adversários do torneio;
 
 ---
