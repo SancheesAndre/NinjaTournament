@@ -7,33 +7,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ninja Tournament</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
     <div class="background">
         <div class="container">
-            <div class="enemyBox">
+            <div class="enemyBox ">
                 <div class="enemyInfo">
-                    <img src="/charactersMedia/greenTeam/GreenNinja/Faceset.png" alt="enemy avatar">
-                    <h1>Enemy Name</h1>
-                    <h2>STR</h2>
-                    <h2>DEF</h2>
+                    <img src="/charactersMedia/greenTeam/Octopus/Faceset21.png" alt="enemy avatar">
+                    <h1>Octopus</h1>
+                    <ul>
+                        <li>
+                            <h2>HP <span id="enemyCurrentHealth">5</span> / <span id="enemyMaxHealth">5</span></h2>
+                        </li>
+                        <li>
+                            <h2>STR <span id="enemyStrength">3</span></h2>
+                        </li>
+                        <li>
+                            <h2>DEF <span id="enemyDefense">0</span></h2>
+                        </li>
+                    </ul>
                 </div>
             </div>
+            
             <div class="enemyAnimation">
 
             </div>
             <div class="playerBox">
                 <div class="playerInfo">
                     <img src="/charactersMedia/Player/DarkNinja/Faceset.png">
-                    <h1>Player Name</h1>
+                    <h1>Black Ninja</h1>
+                    <ul>
+                        <li>
+                            <h2>HP <span id="currentHealth">12</span> / <span id="maxHealth">12</span></h2>
+                        </li>
+                        <li>
+                            <h2>STR <span id="strength">3</span></h2>
+                        </li>
+                        <li>
+                            <h2>DEF <span id="defence"> 0</span></h2>
+                        </li>
+                    </ul>
                 </div>
-            </div>
-            <div class="playerAnimation">
                 
             </div>
+            <div class="playerAnimation">
+
+            </div>
             <div class="playerSkills">
-                <button class="skillsBtn" onclick="consoleHello()">Flame<br>Shuriken</button>
+                <button id="btnFire" class="skillsBtn">Flame<br>Shuriken</button>
                 <button class="skillsBtn">Leaf<br>Shuriken</button>
                 <button class="skillsBtn">Rock<br>Shuriken</button>
             </div>

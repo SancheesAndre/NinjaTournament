@@ -1,5 +1,5 @@
 # Ninja Tournament
-A retro fight game, made using JavaScript, DOM manipulation, HTML5 and CSS3
+A retro RPG game, made using JavaScript, DOM manipulation, HTML5 and CSS3
 
 ---
 
@@ -33,7 +33,7 @@ Your app must:
 ---
 
 # Ninja Tournament
-Um jogo retro de luta, feito usando JavaScript, manipulação do DOM, HTML5 e CSS3
+Um jogo retro de RPG, feito usando JavaScript, manipulação do DOM, HTML5 e CSS3
 
 ---
 

@@ -1,5 +1,10 @@
 * {
     margin: 0;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.display1 {
+    display: none;
 }
 
 body {
@@ -33,6 +38,33 @@ body {
     padding: 10px;
     width: 20%;
     border: 3px solid #EEEDDE;
+
+}
+
+.enemyInfo li {
+    font-size: 1.2em;
+    display: inline-block;
+    list-style: none;
+    padding: 10px;
+    margin: 10px;
+}
+
+.enemyInfo h1 {
+    margin: -10px 15px;
+    font-size: 3.4em;
+}
+
+.playerInfo li {
+    font-size: 1.2em;
+    display: inline-block;
+    list-style: none;
+    padding:10px;
+    margin: 10px;
+}
+
+.playerInfo h1 {
+    margin: -10px 15px;
+    font-size: 3.4em;
 }
 
 .enemyAnimation {
@@ -82,9 +114,12 @@ body {
 }
 
 .skillsBtn {
-    margin: 1px;
-    background-color: #EEEDDE;
-    width: 24%;
-    height: 90%;
+    font-size: 1.8em;
+    margin: 4px;
+    border: 4px dashed #EEEDDE;
+    background-color: #141E27;
+    color: #EEEDDE;
+    width: 20%;
+    height: 60%;
     text-decoration: none;
 }

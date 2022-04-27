@@ -1,7 +1,7 @@
 const monstersArray = [
     {
-        image: URL ('/charactersMedia/greenTeam/Octopus/Faceset21.png'),
-        animate: URL ('/charactersMedia/greenTeam/Octopus/Octopus.png'),
+        image: url('/charactersMedia/greenTeam/Octopus/Faceset21.png'),
+        animate: url('/charactersMedia/greenTeam/Octopus/Octopus.png'),
         name: Octopus,
         health: 5,
         strength: 2,
@@ -10,8 +10,8 @@ const monstersArray = [
     },
     
     {
-        image: URL ('/charactersMedia/greenTeam/GreenNinja/Faceset.png'),
-        animate: URL ('/charactersMedia/greenTeam/GreenNinja/SeparateAnim/Idle.png'),
+        image: url('/charactersMedia/greenTeam/GreenNinja/Faceset.png'),
+        animate: url('/charactersMedia/greenTeam/GreenNinja/SeparateAnim/Idle.png'),
         name: Green-Ninja,
         health: 8,
         strength: 3,
@@ -19,8 +19,8 @@ const monstersArray = [
     },
 
     {
-        image: URL ('/charactersMedia/greenTeam/GiantFrog/Faceset.png'),
-        animate: URL ('/charactersMedia/greenTeam/GiantFrog/Idle40x40.png'),
+        image: url('/charactersMedia/greenTeam/GiantFrog/Faceset.png'),
+        animate: url('/charactersMedia/greenTeam/GiantFrog/Idle40x40.png'),
         name: Giant-Frog,
         health: 12,
         strength: 4,
@@ -28,8 +28,8 @@ const monstersArray = [
     },
 
     {
-        image: URL ('/charactersMedia/yellowTeam/GoldRacoon/Faceset23.png'),
-        animate: URL ('/charactersMedia/yellowTeam/GoldRacoon/Tanuki2.png'),
+        image: url('/charactersMedia/yellowTeam/GoldRacoon/Faceset23.png'),
+        animate: url('/charactersMedia/yellowTeam/GoldRacoon/Tanuki2.png'),
         name: Racoon,
         health: 8,
         strength: 4,
@@ -37,8 +37,8 @@ const monstersArray = [
     },
 
     {
-        image: URL ('/charactersMedia/yellowTeam/Yellowknight/Faceset.png'),
-        animate: URL ('/charactersMedia/yellowTeam/Yellowknight/SeparateAnim/Idle.png'),
+        image: url('/charactersMedia/yellowTeam/Yellowknight/Faceset.png'),
+        animate: url('/charactersMedia/yellowTeam/Yellowknight/SeparateAnim/Idle.png'),
         name: Yellow-Ninja,
         health: 10,
         strength: 6,
@@ -46,8 +46,8 @@ const monstersArray = [
     },
 
     {
-        image: URL ('/charactersMedia/yellowTeam/GiantRacoonGold/Faceset.png'),
-        animate: URL ('/charactersMedia/yellowTeam/GiantRacoonGold/Idle.png'),
+        image: url('/charactersMedia/yellowTeam/GiantRacoonGold/Faceset.png'),
+        animate: url('/charactersMedia/yellowTeam/GiantRacoonGold/Idle.png'),
         name: Giant-Racoon,
         health: 16,
         strength: 8,
@@ -55,8 +55,8 @@ const monstersArray = [
     },
 
     {
-        image: URL ('/charactersMedia/redTeam/Cyclope/Faceset22.png'),
-        animate: URL ('/charactersMedia/redTeam/Cyclope/Cyclopes.png'),
+        image: url('/charactersMedia/redTeam/Cyclope/Faceset22.png'),
+        animate: url('/charactersMedia/redTeam/Cyclope/Cyclopes.png'),
         name: Cyclope,
         health: 10,
         strength: 8,
@@ -64,8 +64,8 @@ const monstersArray = [
     },
 
     {
-        image: URL ('/charactersMedia/redTeam/RedNinja2/Faceset.png'),
-        animate: URL ('/charactersMedia/redTeam/RedNinja2/SeparateAnim/Idle.png'),
+        image: url('/charactersMedia/redTeam/RedNinja2/Faceset.png'),
+        animate: url('/charactersMedia/redTeam/RedNinja2/SeparateAnim/Idle.png'),
         name: Red-Ninja,
         health: 12,
         strength: 12,
@@ -73,8 +73,8 @@ const monstersArray = [
     },
 
     {
-        image: URL ('/charactersMedia/redTeam/DemonCyclop/Faceset.png'),
-        animate: URL ('/charactersMedia/redTeam/DemonCyclop/Idle.png'),
+        image: url('/charactersMedia/redTeam/DemonCyclop/Faceset.png'),
+        animate: url('/charactersMedia/redTeam/DemonCyclop/Idle.png'),
         name: Demon-Cyclope,
         health: 18,
         strength: 14,

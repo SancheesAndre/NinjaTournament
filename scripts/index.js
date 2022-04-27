@@ -16,6 +16,15 @@
 
 /*---------------------------------------------------------------------------------------------------------------------*/
 
-function consoleHello() {
-    console.log('Hello')
-}
+let btnFire = document.querySelector('#btnFire')
+let btnLeaf = document.querySelector('#btnLeaf')
+let btnRock = document.querySelector('#btnRock')
+let enemyHealth = document.getElementById('enemyHealth')
+let enemyMaxhealth = document.getElementById('enemyMaxHealth')
+let playerAttack = document.getElementById('#strength')
+
+
+
+btnFire.addEventListener('click', function() {
+    return enemyHealth.innerHTML = enemyHealth.value - playerAttack.value
+})
