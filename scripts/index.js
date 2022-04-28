@@ -25,6 +25,4 @@ let playerAttack = document.getElementById('#strength')
 
 
 
-btnFire.addEventListener('click', function() {
-    return enemyHealth.innerHTML = enemyHealth.value - playerAttack.value
-})
+btnFire.addEventListener('click', fireAttack)
