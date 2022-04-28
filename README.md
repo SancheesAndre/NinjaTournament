@@ -19,7 +19,7 @@ Your app must:
 
 ## Game rules
 * 1  - Create a singleplayer RPG game in which the player passes a level by killing an enemy;
-* 2  - Every two common enemies, a boss is generated;
+* 2  - The enemies are generated random;
 * 3  - The player and the opponent have LIFE | STRENGTH | DEFENSE;
 * 4  - The PLAYER's health is restored at the beginning of each fight;
 * 5  - Create an initial menu with the Play button, a small intro to the game and the credits ;
