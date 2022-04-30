@@ -18,7 +18,7 @@
         <div class="container">
             <div class="enemyBox ">
                 <div class="enemyInfo">
-                    <img id="enemyImg" src="/charactersMedia/greenTeam//GreenNinja/Faceset.png" alt="enemy avatar">
+                    <img id="enemyImg">
                     <h1><span id="enemyName"></span></h1>
                     <ul>
                         <li>
@@ -40,28 +40,28 @@
             <div class="playerBox">
                 <div class="playerInfo">
                     <img src="/charactersMedia/Player/DarkNinja/Faceset.png">
-                    <h1>Black Ninja</h1>
+                    <h1 id="playerName">Black Ninja</h1>
                     <ul>
                         <li>
-                            <h2>HP <span id="currentHealth">60</span> / <span id="maxHealth">60</span></h2>
+                            <h2>HP <span id="playerCurrentHealth"></span> / <span id="playerMaxHealth"></span></h2>
                         </li>
                         <li>
-                            <h2>STR <span id="strength">8</span></h2>
+                            <h2>STR <span id="playerStrength"></span></h2>
                         </li>
                         <li>
-                            <h2>DEF <span id="defence"> 4</span></h2>
+                            <h2>DEF <span id="playerDefense"> </span></h2>
                         </li>
                     </ul>
                 </div>
 
             </div>
-            <!-- <div class="playerAnimation">
-
-            </div> -->
+            <div class="playerAnimation">
+                <h2 id="battleComment"></h2>
+            </div>
             <div class="playerSkills">
                 <button id="btnFire" class="skillsBtn">Flame<br>Shuriken</button>
                 <button id="btnLeaf" class="skillsBtn">Leaf<br>Shuriken</button>
-                <button id="btnEarth" class="skillsBtn">Earth<br>Shuriken</button>
+                <button id="btnWater" class="skillsBtn">Water<br>Shuriken</button>
             </div>
         </div>
     </div>
