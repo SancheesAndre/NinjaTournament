@@ -40,12 +40,25 @@ let btnFire = document.querySelector('#btnFire')
 let btnLeaf = document.querySelector('#btnLeaf')
 let btnRock = document.querySelector('#btnRock')
 
+function enableButtons() {
+
+    btnFire.removeAttribute('disabled')
+    btnLeaf.removeAttribute('disabled')
+    btnWater.removeAttribute('disabled')
+}
+
+function disableButtons() {
+    btnFire.setAttribute('disabled', true)
+    btnLeaf.setAttribute('disabled', true)
+    btnWater.setAttribute('disabled', true)
+}
+
 //--------------------------------------------------------------------------------------------------------------------------
 
 //-----------MONSTERS-ARRAY-------------------------------------------------------------------------------------------------
 
 const monstersArray = [
-    ['Leaf Ninja', '/charactersMedia/GreenNinja/Faceset.png', 22, 6, 2, 'leaf'],
+    ['Leaf Ninja', '/charactersMedia/GreenNinja/Faceset.png', 22, 8, 2, 'leaf'],
     ['Water Ninja', '/charactersMedia/BlueNinja/Faceset.png', 30, 6, 6, 'earth'],
     ['Fire Ninja', '/charactersMedia/RedNinja/Faceset.png', 30, 8, 2, 'fire']
 ]
@@ -55,7 +68,7 @@ const monstersArray = [
 //---------PLAYER-SPAWN-----------------------------------------------------------------------------------------------------
 
 const playerArray = [
-    ['Black Ninja', '/charactersMedia/Player/DarkNinja/Faceset.png', 20, 10, 4]
+    ['Black Ninja', '/charactersMedia/Player/DarkNinja/Faceset.png', 20, 20, 4]
 ]
 
 let player = playerArray[0]
@@ -84,6 +97,10 @@ function respawnEnemy() {
     return spawnedNinjaEnemy
 }
 
+function restorePlayerHealth() {
+    ninjaPlayer.health = ninjaPlayer.fullHealth
+    playerHealth.innerHTML = ninjaPlayer.health
+}
 
 function spawn() {
     let enemy = monstersArray[Math.floor(Math.random() * monstersArray.length)]
@@ -110,13 +127,16 @@ let playerAttackDMG = playerSTR - spawnedNinjaEnemy.defence
 
 //--------------------------------------------------------------------------------------------------------------------------
 
+//------ATTACK-FUNCTION-----------------------------------------------------------------------------------------------------
+
 function attack(str, def, attacker, receiver, health) {
     // O ataque do personagem pega a força dele e retira o HP do inimigo
     // Se a vida do inimigo for maior que 0, ele ataca 2 segundos depois
     // As informaçoes dos ataques tem que ser exibidas na tela 
     // No final do ataque, a função chama a função checkWinner() 
-    // disableButtons()
-    // setTimeout(() => {enableButtons}, 300);
+
+    disableButtons()
+
     spawnedNinjaEnemy.health = spawnedNinjaEnemy.health - playerAttackDMG
     enemyHealth.innerHTML = spawnedNinjaEnemy.health
 
@@ -129,48 +149,68 @@ function attack(str, def, attacker, receiver, health) {
 
             battleCommentary.innerHTML = `${spawnedNinjaEnemy.name} has attacked the player, dealing ${enemyAttackDamage} damage`
         }, 2000)
-    }      
-    
-    checkWinner()
+    }
+
+    setTimeout(() => {
+        checkWinner()
+    }, 4000)
 
 }
+//--------------------------------------------------------------------------------------------------------------------------
+
+//---------CHECK-WINNER-----------------------------------------------------------------------------------------------------
 
 function checkWinner() {
-    setTimeout(() => {
-        if (ninjaPlayer.health <= 0) {
-            battleCommentary.innerHTML = "The player's HP reached 0"
+
+    if (ninjaPlayer.health <= 0) {
+        battleCommentary.innerHTML = "The player's HP reached 0"
+        setTimeout(() => {
+            battleCommentary.innerHTML = 'TRY AGAIN'
+            restartGame()
             setTimeout(() => {
-                battleCommentary.innerHTML = 'GAME OVER'
+                battleCommentary.innerHTML = 'attack the oponnent!'
             }, 2000)
-        }
-    }, 3000)
-     if (spawnedNinjaEnemy.health <= 0) {
-        battleCommentary.innerHTML = `${spawnedNinjaEnemy.name} has fainted`
+        }, 2500)
+        enableButtons()
+        return
+    }
+
+    if (spawnedNinjaEnemy.health <= 0) {
+        battleCommentary.innerHTML = `The ${spawnedNinjaEnemy.name} has fainted`
         setTimeout(() => {
             battleCommentary.innerHTML = `Another enemy has appeared`
             respawnEnemy()
+            restorePlayerHealth()
 
-        }, 2000);
+        }, 2500);
         setTimeout(() => {
-            battleCommentary.innerHTML = ''
-        }, 4000)
+            battleCommentary.innerHTML = 'attack the oponnent!'
+        }, 5000)
+        enableButtons()
+        return
     }
+
+    setTimeout(() => {
+        if (ninjaPlayer.health > 0) {
+            battleCommentary.innerHTML = 'Make another move!'
+            enableButtons()
+        }
+    }, 1000)
+
 }
+//--------------------------------------------------------------------------------------------------------------------------
+
+//--------------------------------------------------------------------------------------------------------------------------
+function restartGame() {
+    restorePlayerHealth()
+    respawnEnemy()
+    enableButtons()
+}
+
+//--------------------------------------------------------------------------------------------------------------------------
 
 btnFire.addEventListener('click', respawnEnemy)
 btnLeaf.addEventListener('click', attack)
 btnWater.addEventListener('click', attack)
 
 
-function enableButtons() {
-
-    btnFire.removeAttribute('disabled')
-    btnLeaf.removeAttribute('disabled')
-    btnWater.removeAttribute('disabled')
-}
-
-function disableButtons() {
-    btnFire.setAttribute('disabled', true)
-    btnLeaf.setAttribute('disabled', true)
-    btnWater.setAttribute('disabled', true)
-}
