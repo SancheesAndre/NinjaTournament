@@ -59,7 +59,7 @@ function disableButtons() {
 
 const monstersArray = [
     ['Leaf Ninja', '/charactersMedia/GreenNinja/Faceset.png', 22, 8, 2, 'leaf'],
-    ['Water Ninja', '/charactersMedia/BlueNinja/Faceset.png', 30, 6, 6, 'earth'],
+    ['Water Ninja', '/charactersMedia/BlueNinja/Faceset.png', 30, 6, 5, 'earth'],
     ['Fire Ninja', '/charactersMedia/RedNinja/Faceset.png', 30, 8, 2, 'fire']
 ]
 
@@ -68,7 +68,7 @@ const monstersArray = [
 //---------PLAYER-SPAWN-----------------------------------------------------------------------------------------------------
 
 const playerArray = [
-    ['Black Ninja', '/charactersMedia/Player/DarkNinja/Faceset.png', 20, 20, 4]
+    ['Black Ninja', '/charactersMedia/Player/DarkNinja/Faceset.png', 20, 8, 4]
 ]
 
 let player = playerArray[0]
@@ -91,8 +91,8 @@ playerDEF = ninjaPlayer.defence
 
 function respawnEnemy() {
     spawnedNinjaEnemy = spawn()
-    playerAttackDMG = playerSTR - spawnedNinjaEnemy.defence
-    enemyAttackDamage = spawnedNinjaEnemy.strength - ninjaPlayer.defence
+    playerAttack()
+    enemyAttack()
 
     return spawnedNinjaEnemy
 }
@@ -121,15 +121,19 @@ let spawnedNinjaEnemy = spawn()
 
 //-----ENEMY-AND-PLAYER-ATTACK-DAMAGE-ATTRIBUTION---------------------------------------------------------------------------
 
+function playerAttack() {
+    return  playerSTR - spawnedNinjaEnemy.defence
+}
 
-let enemyAttackDamage = spawnedNinjaEnemy.strength - ninjaPlayer.defence
-let playerAttackDMG = playerSTR - spawnedNinjaEnemy.defence
+function enemyAttack() {
+    return spawnedNinjaEnemy.strength - ninjaPlayer.defence
+}
 
 //--------------------------------------------------------------------------------------------------------------------------
 
 //------ATTACK-FUNCTION-----------------------------------------------------------------------------------------------------
 
-function attack(str, def, attacker, receiver, health) {
+function attack() {
     // O ataque do personagem pega a força dele e retira o HP do inimigo
     // Se a vida do inimigo for maior que 0, ele ataca 2 segundos depois
     // As informaçoes dos ataques tem que ser exibidas na tela 
@@ -137,23 +141,35 @@ function attack(str, def, attacker, receiver, health) {
 
     disableButtons()
 
-    spawnedNinjaEnemy.health = spawnedNinjaEnemy.health - playerAttackDMG
+    //---PLAYER ATTACK
+
+    spawnedNinjaEnemy.health = spawnedNinjaEnemy.health - playerAttack()
+    console.log(playerAttack())
+    console.log(spawnedNinjaEnemy.health)
     enemyHealth.innerHTML = spawnedNinjaEnemy.health
 
-    battleCommentary.innerHTML = `The player has attacked ${spawnedNinjaEnemy.name}, dealing ${playerAttackDMG} damage`
+    battleCommentary.innerHTML = `The player has attacked ${spawnedNinjaEnemy.name}, dealing ${playerAttack()} damage`
+
+    //-----------------
+
+    //---ENEMY ATTACK
 
     if (spawnedNinjaEnemy.health > 0) {
         setTimeout(() => {
-            ninjaPlayer.health = ninjaPlayer.health - enemyAttackDamage
+            ninjaPlayer.health = ninjaPlayer.health - enemyAttack()
+            console.log(enemyAttack())
+            console.log(ninjaPlayer.health)
             playerHealth.innerHTML = ninjaPlayer.health
 
-            battleCommentary.innerHTML = `${spawnedNinjaEnemy.name} has attacked the player, dealing ${enemyAttackDamage} damage`
+            battleCommentary.innerHTML = `${spawnedNinjaEnemy.name} has attacked the player, dealing ${enemyAttack()} damage`
         }, 2000)
     }
 
+    //----------------
+
     setTimeout(() => {
         checkWinner()
-    }, 4000)
+    }, 2000)
 
 }
 //--------------------------------------------------------------------------------------------------------------------------
@@ -165,14 +181,15 @@ function checkWinner() {
     if (ninjaPlayer.health <= 0) {
         battleCommentary.innerHTML = "The player's HP reached 0"
         setTimeout(() => {
-            battleCommentary.innerHTML = 'TRY AGAIN'
+            battleCommentary.innerHTML = '<h1>GAME OVER</h1>The game will be restarted!'
             restartGame()
             setTimeout(() => {
                 battleCommentary.innerHTML = 'attack the oponnent!'
-            }, 2000)
+                enableButtons()
+            }, 3000)
         }, 2500)
-        enableButtons()
-        return
+
+
     }
 
     if (spawnedNinjaEnemy.health <= 0) {
@@ -195,7 +212,7 @@ function checkWinner() {
             battleCommentary.innerHTML = 'Make another move!'
             enableButtons()
         }
-    }, 1000)
+    }, 2000)
 
 }
 //--------------------------------------------------------------------------------------------------------------------------
@@ -209,7 +226,7 @@ function restartGame() {
 
 //--------------------------------------------------------------------------------------------------------------------------
 
-btnFire.addEventListener('click', respawnEnemy)
+btnFire.addEventListener('click', attack)
 btnLeaf.addEventListener('click', attack)
 btnWater.addEventListener('click', attack)
 
