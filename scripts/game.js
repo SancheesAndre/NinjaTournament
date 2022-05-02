@@ -194,6 +194,17 @@ function checkWinner() {
 
     if (spawnedNinjaEnemy.health <= 0) {
         battleCommentary.innerHTML = `The ${spawnedNinjaEnemy.name} has fainted`
+        addScorePoints()
+        if (score === 10) {
+            setTimeout(() => {
+                battleCommentary.innerHTML = "Congratulations, YOU'VE WON the tournament"
+            }, 2000)
+            setTimeout(() => {
+                restartGame()
+                battleCommentary.innerHTML = "PLAY AGAIN<br> Attack the enemy!"
+            }, 4000)
+            return
+        }
         setTimeout(() => {
             battleCommentary.innerHTML = `Another enemy has appeared`
             respawnEnemy()
@@ -203,6 +214,7 @@ function checkWinner() {
         setTimeout(() => {
             battleCommentary.innerHTML = 'attack the oponnent!'
         }, 5000)
+        addScorePoints()
         enableButtons()
         return
     }
@@ -222,11 +234,32 @@ function restartGame() {
     restorePlayerHealth()
     respawnEnemy()
     enableButtons()
+    resetScore()
 }
 
 //--------------------------------------------------------------------------------------------------------------------------
 
-btnFire.addEventListener('click', attack)
+//--------------------------------------------------------------------------------------------------------------------------
+
+let scoreboard = document.getElementById('scoreboard')
+let score = 0
+
+function addScorePoints () {
+    score++
+    scoreboard.innerHTML = score
+    console.log(score)
+    console.log(scoreboard)
+}
+
+
+function resetScore() {
+     score = 0
+     scoreboard.innerHTML = 0
+
+}
+//--------------------------------------------------------------------------------------------------------------------------
+
+btnFire.addEventListener('click', addScorePoints)
 btnLeaf.addEventListener('click', attack)
 btnWater.addEventListener('click', attack)
 

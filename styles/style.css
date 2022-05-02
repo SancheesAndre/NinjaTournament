@@ -54,13 +54,14 @@ body {
     font-size: 3.4em;
 }
 
-/* .enemyAnimation {
-    display: inline-block;
-    width: 50%;
-    height: 200px;
-    margin-top: -170px;
+.scoreboardContainer {
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    top: 100px;
+    margin-top: -200;
     margin-left: 2%;
-} */
+}
 
 .playerBox {
     padding: 8px;
