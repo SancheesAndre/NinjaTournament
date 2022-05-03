@@ -18,7 +18,7 @@ Your app must:
 ---
 
 ## Game rules
-* 1  - Create a singleplayer RPG game in which the player passes a level by killing an enemy;
+* 1  - Create a singleplayer RPG game in which the player gains one score point by defeating an enemy;
 * 2  - The enemies are generated random;
 * 3  - The player and the opponent have LIFE | STRENGTH | DEFENSE;
 * 4  - The PLAYER's health is restored at the beginning of each fight;
@@ -26,14 +26,14 @@ Your app must:
 * 6  - The game's HUD will also show the ENEMY and PLAYER information (IMAGE, NAME, LIFE, STRENGTH and DEFENSE);
 * 7  - The player attacks first and then defends from the enemy;
 * 8  - If the player's life reaches 0, the game is over and it restarts;
-* 9  - If the opponent's health reaches 0 a new enemy appears and the Player gains additional attribute points randomly;
+* 9  - If the opponent's health reaches 0 a new enemy appears;
 * 10 - The player gain points on every enemy he defeats and wins the game when the score reaches 10;
 
 ---
 ---
 
 # Ninja Tournament
-Um jogo retro de RPG, feito usando JavaScript, manipulação do DOM, HTML5 e CSS3
+Um jogo retrô de RPG, feito usando JavaScript, manipulação do DOM, HTML5 e CSS3
 
 ---
 
@@ -52,15 +52,15 @@ Um jogo retro de RPG, feito usando JavaScript, manipulação do DOM, HTML5 e CSS
 
 ## Regras do jogo
 
-* 1  - Criar um jogo singleplayer RPG em que o jogador passe de fase ao matar um unimigo;
-* 2  - A cada dois inimigos comuns, um boss é gerado;
+* 1  - Criar um jogo singleplayer RPG em que o jogador ganhe pontos ao derrotar um unimigo;
+* 2  - Os inimigos são gerados de forma aleatória;
 * 3  - O jogador e o adversário possuem VIDA | FORÇA | DEFESA; 
 * 4  - A vida do JOGADOR é restaurada no inicio de cada combate;
-* 5  - Todas as informações de batalha devem ser mostradas na tela ta; 
+* 5  - Todas as informações de batalha devem ser mostradas na tela; 
 * 6  - O HUD do jogo mostrará as iformaçoes do INIMIGO e do JOGADOR (IMAGEM, ANIMAÇÃO, NOME, VIDA, FORÇA e DEFESA);
 * 7  - O jogador ataca primeiro e depois se defende do inimigo;
 * 8  - Se a vida do jogador chegar a 0, o jogo termina e é reiniciado;
-* 9  - Se a vida do adversário chegar a 0 um novo inimigo aparece e o Jogador ganha ponto adicionais de atributo aleatoriamente;
+* 9  - Se a vida do adversário chegar a 0 um novo inimigo aparece;
 * O jogador ganha pontos por cada inimigo que ele derrota e vence o jogo quando a pontuação chegar a 10 pontos
 
 

@@ -257,7 +257,7 @@ function checkWinner() {
             scoreAudio.volume = 0.4
             scoreAudio.play()
         }, 1000)
-        if (score === 3) {          //CRIAR A FUNÇÂO checkGameWin() para substituir essa parte
+        if (score === 2) {         
             setTimeout(() => {
                 bgAudio.pause()
                 gameWin.play()
@@ -269,6 +269,7 @@ function checkWinner() {
             }, 5000)
             return
         }
+        
         setTimeout(() => {
             battleCommentary.innerHTML = `Another enemy has appeared`
             respawnEnemy()
@@ -328,10 +329,11 @@ function toggleAudio() {
         bgAudio.pause()
         bgAudio.classList.remove('bgAudioActive')
     } else {
-        btnToggleMusic.innerText = 'Music ON'
+        
         bgAudio.play()
         bgAudio.volume = 0.05
         bgAudio.classList.add('bgAudioActive')
+        btnToggleMusic.innerText = 'Music ON'
     }
 }
 
