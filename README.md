@@ -3,7 +3,7 @@ A retro RPG game, made using JavaScript, DOM manipulation, HTML5 and CSS3
 
 ---
 
-## Technical Requirements 
+## IRON HACK - Technical Requirements 
 Your app must:
 
 * Render a game in the browser.

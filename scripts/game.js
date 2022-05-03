@@ -1,4 +1,3 @@
-
 class Ninja {
     constructor(name, sprite, health, strength, defence, type) {
         this.name = name;
@@ -20,7 +19,6 @@ let playerSTR = document.getElementById('playerStrength')
 let playerDEF = document.getElementById('playerDefense')
 let battleCommentary = document.getElementById('battleComment')
 
-
 //--------------------------------------------------------------------------------------------------------------------------
 
 //----------ENEMY-BOX-DOM---------------------------------------------------------------------------------------------------
@@ -39,11 +37,12 @@ let enemySprite = document.getElementById('enemyImg')
 let btnFire = document.querySelector('#btnFire')
 let btnLeaf = document.querySelector('#btnLeaf')
 let btnWater = document.querySelector('#btnWater')
+let btnToggleMusic = document.querySelector('#toggleMusic')
 
-
-btnFire.addEventListener('click', toggleAudio)
+btnFire.addEventListener('click', attack)
 btnLeaf.addEventListener('click', attack)
 btnWater.addEventListener('click', attack)
+btnToggleMusic.addEventListener('click', toggleAudio)
 
 function enableButtons() {
 
@@ -58,23 +57,46 @@ function disableButtons() {
     btnWater.setAttribute('disabled', true)
 }
 
+//--------------------------------------------------------------------------------------------------------------------------
+
+//------GAME-START----------------------------------------------------------------------------------------------------------
 
 let btnGameStart = document.getElementById('gameStart')
 btnGameStart.addEventListener('click', startGame)
 
+function startGame() {
 
+    battleCommentary.innerHTML = 'Make a move!'
+    btnFire.classList.remove('displayNone')
+    btnLeaf.classList.remove('displayNone')
+    btnWater.classList.remove('displayNone')
+
+    btnGameStart.classList.add('displayNone')
+    bgAudio.play()
+    bgAudio.volume = 0.05
+
+}
 
 //--------------------------------------------------------------------------------------------------------------------------
 
-//-----------MONSTERS-ARRAY-------------------------------------------------------------------------------------------------
+//------GAME-RESET----------------------------------------------------------------------------------------------------------
 
-const monstersArray = [
-    ['Leaf Ninja', '/charactersMedia/GreenNinja/Faceset.png', 22, 8, 2, 'leaf'],
-    ['Water Ninja', '/charactersMedia/BlueNinja/Faceset.png', 30, 6, 4, 'earth'],
-    ['Fire Ninja', '/charactersMedia/RedNinja/Faceset.png', 30, 8, 2, 'fire']
-]
+function restartGame() {
+    restorePlayerHealth()
+    respawnEnemy()
+    enableButtons()
+    resetScore()
+
+    btnFire.classList.add('displayNone')
+    btnLeaf.classList.add('displayNone')
+    btnWater.classList.add('displayNone')
+
+    btnGameStart.classList.remove('displayNone')
+
+}
 
 //--------------------------------------------------------------------------------------------------------------------------
+
 
 //---------PLAYER-SPAWN-----------------------------------------------------------------------------------------------------
 
@@ -98,6 +120,18 @@ playerSTR = ninjaPlayer.strength
 playerDEF = ninjaPlayer.defence
 
 //--------------------------------------------------------------------------------------------------------------------------
+
+//-----------MONSTERS-ARRAY-------------------------------------------------------------------------------------------------
+
+const monstersArray = [
+    ['Leaf Ninja', '/charactersMedia/GreenNinja/Faceset.png', 22, 8, 3, 'leaf'],
+    ['Water Ninja', '/charactersMedia/BlueNinja/Faceset.png', 30, 6, 4, 'earth'],
+    ['Fire Ninja', '/charactersMedia/RedNinja/Faceset.png', 30, 8, 2, 'fire']
+]
+
+//--------------------------------------------------------------------------------------------------------------------------
+
+
 //---------ENEMY-SPAWN/RESPAWN----------------------------------------------------------------------------------------------
 
 function respawnEnemy() {
@@ -152,7 +186,7 @@ function attack() {
 
     disableButtons()
 
-    //---PLAYER ATTACK
+    //---PLAYER ATTACK-------------------------
 
     setTimeout(() => {
         playerAttackAudio.volume = 0.2
@@ -163,25 +197,25 @@ function attack() {
         battleCommentary.innerHTML = `The player has attacked ${spawnedNinjaEnemy.name}, dealing ${playerAttack()} damage`
     }, 500)
 
-    //-----------------
+    //-----------------------------------------
 
-    //---ENEMY ATTACK
+    //---ENEMY ATTACK--------------------------
 
-    if (spawnedNinjaEnemy.health > 0) {
-        setTimeout(() => {
+
+    setTimeout(() => {
+        if (spawnedNinjaEnemy.health > 0) {
             enemyAttackAudio.volume = 0.2
             enemyAttackAudio.play()
 
             ninjaPlayer.health = ninjaPlayer.health - enemyAttack()
-            console.log(enemyAttack())
-            console.log(ninjaPlayer.health)
+
             playerHealth.innerHTML = ninjaPlayer.health
 
             battleCommentary.innerHTML = `${spawnedNinjaEnemy.name} has attacked the player, dealing ${enemyAttack()} damage`
-        }, 3000)
-    }
+        }
+    }, 2000)
 
-    //----------------
+    //---------------------------------------
 
     setTimeout(() => {
         checkWinner()
@@ -193,6 +227,8 @@ function attack() {
 //---------CHECK-WINNER-----------------------------------------------------------------------------------------------------
 
 function checkWinner() {
+
+    //-------PLAYER-DIES-CASE--------------------------------------------------------------
 
     if (ninjaPlayer.health <= 0) {
         setTimeout(() => {
@@ -209,9 +245,10 @@ function checkWinner() {
                 restartGame()
             }, 3000)
         }, 3000)
-
-
     }
+    //------------------------------------------------------------------------------------
+
+    //-------ENEMY-DIES-CASE--------------------------------------------------------------
 
     if (spawnedNinjaEnemy.health <= 0) {
         setTimeout(() => {
@@ -219,17 +256,17 @@ function checkWinner() {
             addScorePoints()
             scoreAudio.volume = 0.4
             scoreAudio.play()
-        }, 3000)
-        if (score === 10) {
+        }, 1000)
+        if (score === 3) {          //CRIAR A FUNÇÂO checkGameWin() para substituir essa parte
             setTimeout(() => {
                 bgAudio.pause()
                 gameWin.play()
                 battleCommentary.innerHTML = "Congratulations, YOU'VE WON the tournament"
-            }, 4000)
+            }, 3000)
             setTimeout(() => {
                 restartGame()
                 battleCommentary.innerHTML = "PLAY AGAIN"
-            }, 6000)
+            }, 5000)
             return
         }
         setTimeout(() => {
@@ -237,43 +274,30 @@ function checkWinner() {
             respawnEnemy()
             restorePlayerHealth()
 
-        }, 5000);
+        }, 4000);
         setTimeout(() => {
             battleCommentary.innerHTML = 'attack the oponnent!'
-        }, 7000)
+        }, 6000)
 
         enableButtons()
         return
     }
 
+    //------------------------------------------------------------------------------------
+
+    //-----BATTLE-CONTINUES-CASE----------------------------------------------------------
     setTimeout(() => {
         if (ninjaPlayer.health > 0) {
             battleCommentary.innerHTML = 'Make another move!'
             enableButtons()
         }
-    }, 4000)
+    }, 2000)
+
 
 }
 //--------------------------------------------------------------------------------------------------------------------------
 
-//--------------------------------------------------------------------------------------------------------------------------
-function restartGame() {
-    restorePlayerHealth()
-    respawnEnemy()
-    enableButtons()
-    resetScore()
-
-    btnFire.classList.add('displayNone')
-    btnLeaf.classList.add('displayNone')
-    btnWater.classList.add('displayNone')
-
-    btnGameStart.classList.remove('displayNone')
-
-}
-
-//--------------------------------------------------------------------------------------------------------------------------
-
-//--------------------------------------------------------------------------------------------------------------------------
+//-----SCOREBOARD-----------------------------------------------------------------------------------------------------------
 
 let scoreboard = document.getElementById('scoreboard')
 let score = 0
@@ -281,8 +305,6 @@ let score = 0
 function addScorePoints() {
     ++score
     scoreboard.innerHTML = score
-    console.log(score)
-    console.log(scoreboard)
 }
 
 
@@ -302,26 +324,14 @@ const enemyAttackAudio = document.getElementById('enemyAttackAudio')
 
 function toggleAudio() {
     if (bgAudio.classList.contains('bgAudioActive')) {
-        btnFire.innerText = 'Music OFF'
+        btnToggleMusic.innerText = 'Music OFF'
         bgAudio.pause()
         bgAudio.classList.remove('bgAudioActive')
     } else {
-        btnFire.innerText = 'Music ON'
+        btnToggleMusic.innerText = 'Music ON'
         bgAudio.play()
         bgAudio.volume = 0.05
         bgAudio.classList.add('bgAudioActive')
     }
 }
 
-function startGame() {
-
-    battleCommentary.innerHTML = 'Make a move!'
-    btnFire.classList.remove('displayNone')
-    btnLeaf.classList.remove('displayNone')
-    btnWater.classList.remove('displayNone')
-
-    btnGameStart.classList.add('displayNone')
-    bgAudio.play()
-    bgAudio.volume = 0.05
-
-}
