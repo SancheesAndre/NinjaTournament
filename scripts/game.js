@@ -101,7 +101,7 @@ function restartGame() {
 //---------PLAYER-SPAWN-----------------------------------------------------------------------------------------------------
 
 const playerArray = [
-    ['Black Ninja', '/charactersMedia/Player/DarkNinja/Faceset.png', 20, 8, 4]
+    ['Black Ninja', './charactersMedia/Player/DarkNinja/Faceset.png', 20, 8, 4]
 ]
 
 let player = playerArray[0]
@@ -124,9 +124,9 @@ playerDEF = ninjaPlayer.defence
 //-----------MONSTERS-ARRAY-------------------------------------------------------------------------------------------------
 
 const monstersArray = [
-    ['Leaf Ninja', '/charactersMedia/GreenNinja/Faceset.png', 22, 8, 3, 'leaf'],
-    ['Water Ninja', '/charactersMedia/BlueNinja/Faceset.png', 30, 6, 4, 'earth'],
-    ['Fire Ninja', '/charactersMedia/RedNinja/Faceset.png', 30, 8, 2, 'fire']
+    ['Leaf Ninja', './charactersMedia/GreenNinja/Faceset.png', 22, 8, 3, 'leaf'],
+    ['Water Ninja', './charactersMedia/BlueNinja/Faceset.png', 30, 6, 4, 'earth'],
+    ['Fire Ninja', './charactersMedia/RedNinja/Faceset.png', 30, 8, 2, 'fire']
 ]
 
 //--------------------------------------------------------------------------------------------------------------------------
@@ -167,7 +167,7 @@ let spawnedNinjaEnemy = spawn()
 //-----ENEMY-AND-PLAYER-ATTACK-DAMAGE-ATTRIBUTION---------------------------------------------------------------------------
 
 function playerAttack() {
-    return playerSTR - spawnedNinjaEnemy.defence
+    return playerSTR - spawnedNinjaEnemy.defence 
 }
 
 function enemyAttack() {
@@ -257,7 +257,7 @@ function checkWinner() {
             scoreAudio.volume = 0.4
             scoreAudio.play()
         }, 1000)
-        if (score === 2) {         
+        if (score === 1) {         
             setTimeout(() => {
                 bgAudio.pause()
                 gameWin.play()
