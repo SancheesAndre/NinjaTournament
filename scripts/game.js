@@ -90,7 +90,7 @@ function restartGame() {
 //---------PLAYER-SPAWN-----------------------------------------------------------------------------------------------------
 
 const playerArray = [
-    ['Black Ninja', './charactersMedia/Player/DarkNinja/Faceset.png', 20, 60, 4]
+    ['Black Ninja', './charactersMedia/Player/DarkNinja/Faceset.png', 20, 6, 4]
 ]
 
 let player = playerArray[0]

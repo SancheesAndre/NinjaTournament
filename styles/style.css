@@ -201,6 +201,7 @@ body {
     
     .playerInfo img {
         min-width: 70px;
+        margin: 2px;
     }
 
     .enemyBox{
@@ -212,6 +213,7 @@ body {
     
     .enemyInfo img {
         min-width: 70px;
+        margin: 2px;
     }
 
     .scoreboardContainer {
