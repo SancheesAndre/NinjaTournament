@@ -1,7 +1,8 @@
 # Ninja Tournament
-A retro RPG game, made using JavaScript, DOM manipulation, HTML5 and CSS3
+A retro RPG game, developed by using JavaScript, DOM manipulation, HTML5 and CSS3
 
 ---
+## [Game presentation](https://docs.google.com/presentation/d/1b6Du2ufyKUq_-omMlY0VtkzLpLuq7nrGYjCPKfi_--g/edit#slide=id.g1278f01d838_0_281)
 
 ## IRON HACK - Technical Requirements 
 Your app must:

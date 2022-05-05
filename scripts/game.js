@@ -101,7 +101,7 @@ function restartGame() {
 //---------PLAYER-SPAWN-----------------------------------------------------------------------------------------------------
 
 const playerArray = [
-    ['Black Ninja', './charactersMedia/Player/DarkNinja/Faceset.png', 20, 8, 4]
+    ['Black Ninja', './charactersMedia/Player/DarkNinja/Faceset.png', 20, 6, 4]
 ]
 
 let player = playerArray[0]
@@ -124,9 +124,9 @@ playerDEF = ninjaPlayer.defence
 //-----------MONSTERS-ARRAY-------------------------------------------------------------------------------------------------
 
 const monstersArray = [
-    ['Leaf Ninja', './charactersMedia/GreenNinja/Faceset.png', 22, 8, 3, 'leaf'],
-    ['Water Ninja', './charactersMedia/BlueNinja/Faceset.png', 30, 6, 4, 'earth'],
-    ['Fire Ninja', './charactersMedia/RedNinja/Faceset.png', 30, 8, 2, 'fire']
+    ['Leaf Ninja', './charactersMedia/GreenNinja/Faceset.png', 22, 8, 3, 'btnLeaf'],
+    ['Water Ninja', './charactersMedia/BlueNinja/Faceset.png', 30, 6, 4, 'btnWater'],
+    ['Fire Ninja', './charactersMedia/RedNinja/Faceset.png', 30, 8, 2, 'btnFire']
 ]
 
 //--------------------------------------------------------------------------------------------------------------------------
@@ -166,8 +166,19 @@ let spawnedNinjaEnemy = spawn()
 
 //-----ENEMY-AND-PLAYER-ATTACK-DAMAGE-ATTRIBUTION---------------------------------------------------------------------------
 
+function playerCritAttack() {
+    return (playerSTR * 2) - spawnedNinjaEnemy.defence
+
+}
+
 function playerAttack() {
-    return playerSTR - spawnedNinjaEnemy.defence 
+    return playerSTR - spawnedNinjaEnemy.defence
+
+}
+
+function playerNoEffectAttack() {
+    return 0
+
 }
 
 function enemyAttack() {
@@ -191,10 +202,66 @@ function attack() {
     setTimeout(() => {
         playerAttackAudio.volume = 0.2
         playerAttackAudio.play()
-        spawnedNinjaEnemy.health = spawnedNinjaEnemy.health - playerAttack()
-        enemyHealth.innerHTML = spawnedNinjaEnemy.health
 
-        battleCommentary.innerHTML = `The player has attacked ${spawnedNinjaEnemy.name}, dealing ${playerAttack()} damage`
+        //---SAME-TYPE_CASE---------------------------------------------------------------------------------------------------------------------------------
+
+        if (this.id == spawnedNinjaEnemy.type) {
+            spawnedNinjaEnemy.health = spawnedNinjaEnemy.health - playerAttack()
+            enemyHealth.innerHTML = spawnedNinjaEnemy.health
+            battleCommentary.innerHTML = `The player has attacked ${spawnedNinjaEnemy.name}, dealing ${playerAttack()} damage`
+        }
+
+        //------------------------------------------------------------------------------------------------------------------------------------
+
+        //---FIRE-BUTTON-CASES---------------------------------------------------------------------------------------------------------------------------------
+
+        if (this.id == 'btnFire' && spawnedNinjaEnemy.type == 'btnLeaf') {
+            spawnedNinjaEnemy.health = spawnedNinjaEnemy.health - playerCritAttack()
+            enemyHealth.innerHTML = spawnedNinjaEnemy.health
+            battleCommentary.innerHTML = `The attack was SUPER EFFECTIVE, dealing ${playerCritAttack()} damage`
+        }
+
+        if (this.id == 'btnFire' && spawnedNinjaEnemy.type == 'btnWater') {
+            spawnedNinjaEnemy.health = spawnedNinjaEnemy.health - playerNoEffectAttack()
+            enemyHealth.innerHTML = spawnedNinjaEnemy.health
+            battleCommentary.innerHTML = `The attack had no effect!`
+        }
+
+        //------------------------------------------------------------------------------------------------------------------------------------
+
+        //---LEAF-BUTTON-CASES---------------------------------------------------------------------------------------------------------------------------------
+
+        if (this.id == 'btnLeaf' && spawnedNinjaEnemy.type == 'btnWater') {
+            spawnedNinjaEnemy.health = spawnedNinjaEnemy.health - playerCritAttack()
+            enemyHealth.innerHTML = spawnedNinjaEnemy.health
+            battleCommentary.innerHTML = `The attack was SUPER EFFECTIVE, dealing ${playerCritAttack()} damage`
+        }
+
+        if (this.id == 'btnLeaf' && spawnedNinjaEnemy.type == 'btnFire') {
+            spawnedNinjaEnemy.health = spawnedNinjaEnemy.health - playerNoEffectAttack()
+            enemyHealth.innerHTML = spawnedNinjaEnemy.health
+            battleCommentary.innerHTML = `The attack had no effect!`
+        }
+
+        //------------------------------------------------------------------------------------------------------------------------------------
+        
+        //---WATER-BUTTON-CASES---------------------------------------------------------------------------------------------------------------------------------
+
+        if (this.id == 'btnWater' && spawnedNinjaEnemy.type == 'btnFire') {
+            spawnedNinjaEnemy.health = spawnedNinjaEnemy.health - playerCritAttack()
+            enemyHealth.innerHTML = spawnedNinjaEnemy.health
+            battleCommentary.innerHTML = `The attack was SUPER EFFECTIVE, dealing ${playerCritAttack()} damage`
+        }
+
+        if (this.id == 'btnWater' && spawnedNinjaEnemy.type == 'btnLeaf') {
+            spawnedNinjaEnemy.health = spawnedNinjaEnemy.health - playerNoEffectAttack()
+            enemyHealth.innerHTML = spawnedNinjaEnemy.health
+            battleCommentary.innerHTML = `The attack had no effect!`
+        }
+
+        //------------------------------------------------------------------------------------------------------------------------------------
+
+
     }, 500)
 
     //-----------------------------------------
@@ -257,7 +324,7 @@ function checkWinner() {
             scoreAudio.volume = 0.4
             scoreAudio.play()
         }, 1000)
-        if (score === 1) {         
+        if (score === 9) {
             setTimeout(() => {
                 bgAudio.pause()
                 gameWin.play()
@@ -269,7 +336,7 @@ function checkWinner() {
             }, 5000)
             return
         }
-        
+
         setTimeout(() => {
             battleCommentary.innerHTML = `Another enemy has appeared`
             respawnEnemy()
@@ -329,7 +396,7 @@ function toggleAudio() {
         bgAudio.pause()
         bgAudio.classList.remove('bgAudioActive')
     } else {
-        
+
         bgAudio.play()
         bgAudio.volume = 0.05
         bgAudio.classList.add('bgAudioActive')
