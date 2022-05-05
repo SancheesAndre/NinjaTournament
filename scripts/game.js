@@ -19,8 +19,6 @@ let playerSTR = document.getElementById('playerStrength')
 let playerDEF = document.getElementById('playerDefense')
 let battleCommentary = document.getElementById('battleComment')
 
-//--------------------------------------------------------------------------------------------------------------------------
-
 //----------ENEMY-BOX-DOM---------------------------------------------------------------------------------------------------
 
 let enemyName = document.getElementById('enemyName')
@@ -29,8 +27,6 @@ let enemyMaxhealth = document.getElementById('enemyMaxHealth')
 let enemySTR = document.getElementById('enemyStrength')
 let enemyDEF = document.getElementById('enemyDefense')
 let enemySprite = document.getElementById('enemyImg')
-
-//--------------------------------------------------------------------------------------------------------------------------
 
 //----------Buttons-DOM-----------------------------------------------------------------------------------------------------
 
@@ -57,8 +53,6 @@ function disableButtons() {
     btnWater.setAttribute('disabled', true)
 }
 
-//--------------------------------------------------------------------------------------------------------------------------
-
 //------GAME-START----------------------------------------------------------------------------------------------------------
 
 let btnGameStart = document.getElementById('gameStart')
@@ -77,8 +71,6 @@ function startGame() {
 
 }
 
-//--------------------------------------------------------------------------------------------------------------------------
-
 //------GAME-RESET----------------------------------------------------------------------------------------------------------
 
 function restartGame() {
@@ -94,9 +86,6 @@ function restartGame() {
     btnGameStart.classList.remove('displayNone')
 
 }
-
-//--------------------------------------------------------------------------------------------------------------------------
-
 
 //---------PLAYER-SPAWN-----------------------------------------------------------------------------------------------------
 
@@ -119,8 +108,6 @@ playerMaxhealth = ninjaPlayer.health
 playerSTR = ninjaPlayer.strength
 playerDEF = ninjaPlayer.defence
 
-//--------------------------------------------------------------------------------------------------------------------------
-
 //-----------MONSTERS-ARRAY-------------------------------------------------------------------------------------------------
 
 const monstersArray = [
@@ -128,9 +115,6 @@ const monstersArray = [
     ['Water Ninja', './charactersMedia/BlueNinja/Faceset.png', 30, 6, 4, 'btnWater'],
     ['Fire Ninja', './charactersMedia/RedNinja/Faceset.png', 30, 8, 2, 'btnFire']
 ]
-
-//--------------------------------------------------------------------------------------------------------------------------
-
 
 //---------ENEMY-SPAWN/RESPAWN----------------------------------------------------------------------------------------------
 
@@ -162,8 +146,6 @@ function spawn() {
 }
 let spawnedNinjaEnemy = spawn()
 
-//--------------------------------------------------------------------------------------------------------------------------
-
 //-----ENEMY-AND-PLAYER-ATTACK-DAMAGE-ATTRIBUTION---------------------------------------------------------------------------
 
 function playerCritAttack() {
@@ -176,24 +158,13 @@ function playerAttack() {
 
 }
 
-function playerNoEffectAttack() {
-    return 0
-
-}
-
 function enemyAttack() {
     return spawnedNinjaEnemy.strength - ninjaPlayer.defence
 }
 
-//--------------------------------------------------------------------------------------------------------------------------
-
 //------ATTACK-FUNCTION-----------------------------------------------------------------------------------------------------
 
 function attack() {
-    // O ataque do personagem pega a força dele e retira o HP do inimigo
-    // Se a vida do inimigo for maior que 0, ele ataca 2 segundos depois
-    // As informaçoes dos ataques tem que ser exibidas na tela 
-    // No final do ataque, a função chama a função checkWinner() 
 
     disableButtons()
 
@@ -211,8 +182,6 @@ function attack() {
             battleCommentary.innerHTML = `The player has attacked ${spawnedNinjaEnemy.name}, dealing ${playerAttack()} damage`
         }
 
-        //------------------------------------------------------------------------------------------------------------------------------------
-
         //---FIRE-BUTTON-CASES---------------------------------------------------------------------------------------------------------------------------------
 
         if (this.id == 'btnFire' && spawnedNinjaEnemy.type == 'btnLeaf') {
@@ -222,12 +191,8 @@ function attack() {
         }
 
         if (this.id == 'btnFire' && spawnedNinjaEnemy.type == 'btnWater') {
-            spawnedNinjaEnemy.health = spawnedNinjaEnemy.health - playerNoEffectAttack()
-            enemyHealth.innerHTML = spawnedNinjaEnemy.health
             battleCommentary.innerHTML = `The attack had no effect!`
         }
-
-        //------------------------------------------------------------------------------------------------------------------------------------
 
         //---LEAF-BUTTON-CASES---------------------------------------------------------------------------------------------------------------------------------
 
@@ -238,13 +203,9 @@ function attack() {
         }
 
         if (this.id == 'btnLeaf' && spawnedNinjaEnemy.type == 'btnFire') {
-            spawnedNinjaEnemy.health = spawnedNinjaEnemy.health - playerNoEffectAttack()
-            enemyHealth.innerHTML = spawnedNinjaEnemy.health
             battleCommentary.innerHTML = `The attack had no effect!`
         }
 
-        //------------------------------------------------------------------------------------------------------------------------------------
-        
         //---WATER-BUTTON-CASES---------------------------------------------------------------------------------------------------------------------------------
 
         if (this.id == 'btnWater' && spawnedNinjaEnemy.type == 'btnFire') {
@@ -254,17 +215,9 @@ function attack() {
         }
 
         if (this.id == 'btnWater' && spawnedNinjaEnemy.type == 'btnLeaf') {
-            spawnedNinjaEnemy.health = spawnedNinjaEnemy.health - playerNoEffectAttack()
-            enemyHealth.innerHTML = spawnedNinjaEnemy.health
             battleCommentary.innerHTML = `The attack had no effect!`
         }
-
-        //------------------------------------------------------------------------------------------------------------------------------------
-
-
     }, 500)
-
-    //-----------------------------------------
 
     //---ENEMY ATTACK--------------------------
 
@@ -282,16 +235,16 @@ function attack() {
         }
     }, 2000)
 
-    //---------------------------------------
+    //---Checking-Winner------------------------------------
 
     setTimeout(() => {
         checkWinner()
     }, 2000)
 
 }
-//--------------------------------------------------------------------------------------------------------------------------
 
-//---------CHECK-WINNER-----------------------------------------------------------------------------------------------------
+
+//---------CHECK-WINNER-FUNCTION-----------------------------------------------------------------------------------------------------
 
 function checkWinner() {
 
@@ -313,7 +266,6 @@ function checkWinner() {
             }, 3000)
         }, 3000)
     }
-    //------------------------------------------------------------------------------------
 
     //-------ENEMY-DIES-CASE--------------------------------------------------------------
 
@@ -351,9 +303,8 @@ function checkWinner() {
         return
     }
 
-    //------------------------------------------------------------------------------------
-
     //-----BATTLE-CONTINUES-CASE----------------------------------------------------------
+
     setTimeout(() => {
         if (ninjaPlayer.health > 0) {
             battleCommentary.innerHTML = 'Make another move!'
@@ -363,9 +314,8 @@ function checkWinner() {
 
 
 }
-//--------------------------------------------------------------------------------------------------------------------------
 
-//-----SCOREBOARD-----------------------------------------------------------------------------------------------------------
+//-----SCOREBOARD-FUNCTION----------------------------------------------------------------------------------------------------------
 
 let scoreboard = document.getElementById('scoreboard')
 let score = 0
@@ -403,4 +353,3 @@ function toggleAudio() {
         btnToggleMusic.innerText = 'Music ON'
     }
 }
-
