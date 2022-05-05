@@ -1,6 +1,7 @@
 * {
     margin: 0;
     font-family: 'Orbitron', sans-serif;
+    border: 1px solid red;
 }
 
 body {
@@ -100,8 +101,6 @@ body {
 .scoreboardContainer {
     font-size: 1vmax;
     position: absolute;
-    width: 200px;
-    height: 100px;
     top: 100px;
     margin-top: -200;
     margin-left: 2%;
@@ -191,4 +190,57 @@ body {
     font-size: 16px;
     text-decoration: none;
     color: #EEEDDE;
+}
+
+@media (max-width: 600px) {
+    .playerBox{
+        width: 88%;
+        letter-spacing: 1px;
+        height: 150px;
+        margin-left: 2.5%;
+    }
+    
+    .playerInfo img {
+        min-width: 70px;
+    }
+
+    .enemyBox{
+        width: 88%;
+        letter-spacing: 1px;
+        height: 150px;
+        margin-left: 2.5%;
+    }
+    
+    .enemyInfo img {
+        min-width: 70px;
+    }
+
+    .scoreboardContainer {
+        top: 195px;
+    } 
+
+    .battleCommentary {
+        width: 92%;
+        margin-left: 3%;
+        margin-top: 10px;
+        height: 80px;
+    }
+
+    .playerSkills {
+        width: 92%;
+        height: 80px;
+    }
+
+    .btnPlay {
+        width: 40%;
+    }
+
+    .footer {
+        font-size: 10px;
+        width: 250px;
+        height: 60px;
+        margin: 0px;
+    }
+
+    
 }

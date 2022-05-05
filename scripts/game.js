@@ -90,7 +90,7 @@ function restartGame() {
 //---------PLAYER-SPAWN-----------------------------------------------------------------------------------------------------
 
 const playerArray = [
-    ['Black Ninja', './charactersMedia/Player/DarkNinja/Faceset.png', 20, 6, 4]
+    ['Black Ninja', './charactersMedia/Player/DarkNinja/Faceset.png', 20, 60, 4]
 ]
 
 let player = playerArray[0]
@@ -206,7 +206,7 @@ function attack() {
             battleCommentary.innerHTML = `The attack had no effect!`
         }
 
-        //---WATER-BUTTON-CASES---------------------------------------------------------------------------------------------------------------------------------
+        //---WATER-BUTTON-CASES-----------------------------------------------------------------------------------------------------------------------
 
         if (this.id == 'btnWater' && spawnedNinjaEnemy.type == 'btnFire') {
             spawnedNinjaEnemy.health = spawnedNinjaEnemy.health - playerCritAttack()
@@ -242,7 +242,6 @@ function attack() {
     }, 2000)
 
 }
-
 
 //---------CHECK-WINNER-FUNCTION-----------------------------------------------------------------------------------------------------
 
