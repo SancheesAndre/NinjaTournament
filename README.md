@@ -2,8 +2,13 @@
 A retro RPG game, developed by using JavaScript, DOM manipulation, HTML5 and CSS3
 
 ---
+<<<<<<< HEAD
 ## [Game presentation](https://docs.google.com/presentation/d/1b6Du2ufyKUq_-omMlY0VtkzLpLuq7nrGYjCPKfi_--g/edit#slide=id.g1278f01d838_0_281)
 
+=======
+### [Game Presentation (En-us)](https://docs.google.com/presentation/d/1PyUcPoed5UGzkcwRhn6RfA9wYFRNsguJBhpd1ctiCWg/edit?usp=sharing)
+### [Game Presentation (pt-Br)](https://docs.google.com/presentation/d/1b6Du2ufyKUq_-omMlY0VtkzLpLuq7nrGYjCPKfi_--g/edit#slide=id.g1278f01d838_0_281)
+>>>>>>> 56435a14dff3dd32b6313f62e30400681ffbf4cf
 ## IRON HACK - Technical Requirements 
 Your app must:
 
