@@ -1,5 +1,6 @@
 # Ninja Tournament [click here to play](https://sancheesandre.github.io/NinjaTournament/)
 A retro RPG game, developed by using JavaScript, DOM manipulation, HTML5 and CSS3
+#### [(click here to play)](https://sancheesandre.github.io/NinjaTournament/)
 
 ---
 
@@ -7,6 +8,7 @@ A retro RPG game, developed by using JavaScript, DOM manipulation, HTML5 and CSS
 ### [Game Presentation (pt-Br)](https://docs.google.com/presentation/d/1b6Du2ufyKUq_-omMlY0VtkzLpLuq7nrGYjCPKfi_--g/edit#slide=id.g1278f01d838_0_281)
 
 ## IRON HACK - Technical Requirements 
+#### (versão em pt-br mais abaixo na pagina)
 Your app must:
 
 * Render a game in the browser.
@@ -35,8 +37,9 @@ Your app must:
 ---
 
 # Ninja Tournament
-Um jogo retrô de RPG, feito usando JavaScript, manipulação do DOM, HTML5 e CSS3
 
+Um jogo retrô de RPG, feito usando JavaScript, manipulação do DOM, HTML5 e CSS3
+#### [(clique aqui para jogar)](https://sancheesandre.github.io/NinjaTournament/)
 ---
 
 ## Requerimentos técnicos
@@ -64,7 +67,10 @@ Um jogo retrô de RPG, feito usando JavaScript, manipulação do DOM, HTML5 e CS
 * 8  - Se a vida do jogador chegar a 0, o jogo termina e é reiniciado;
 * 9  - Se a vida do adversário chegar a 0 um novo inimigo aparece;
 * O jogador ganha pontos por cada inimigo que ele derrota e vence o jogo quando a pontuação chegar a 10 pontos
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> 98cbd29c0f2fc705bfc41283a5de966fdb0df680

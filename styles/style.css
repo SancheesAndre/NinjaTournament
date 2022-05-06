@@ -191,7 +191,7 @@ body {
     color: #EEEDDE;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     .playerBox{
         width: 88%;
         letter-spacing: 1px;
