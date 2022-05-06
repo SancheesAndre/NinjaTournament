@@ -1,4 +1,4 @@
-# Ninja Tournament [click here to play](https://sancheesandre.github.io/NinjaTournament/)
+# Ninja Tournament 
 A retro RPG game, developed by using JavaScript, DOM manipulation, HTML5 and CSS3
 #### [(click here to play)](https://sancheesandre.github.io/NinjaTournament/)
 
