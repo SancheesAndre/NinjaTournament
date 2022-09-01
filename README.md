@@ -2,6 +2,8 @@
 A retro RPG game, developed by using JavaScript, DOM manipulation, HTML5 and CSS3
 #### [(click here to play)](https://sancheesandre.github.io/NinjaTournament/)
 
+![image](https://user-images.githubusercontent.com/55901671/188014315-4811ef08-e92a-4f67-be7c-bb83303d1d61.png)
+
 ---
 
 ### [Game Presentation (En-us)](https://docs.google.com/presentation/d/1PyUcPoed5UGzkcwRhn6RfA9wYFRNsguJBhpd1ctiCWg/edit?usp=sharing)
